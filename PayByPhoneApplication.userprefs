@@ -1,6 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="PbPTweetAggregator.Test/RequestTest.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PbPTweetAggregator/Global.asax.cs">
     <Files>
       <File FileName="PbPTweetAggregator/Twitter/TwitterLib.cs" Line="58" Column="36" />
       <File FileName="PbPTweetAggregator/Twitter/PayByPhoneAggregator.cs" Line="1" Column="1" />
@@ -11,6 +11,9 @@
       <File FileName="PbPTweetAggregator/Communication/Request.cs" Line="1" Column="1" />
       <File FileName="PbPTweetAggregator/Communication/OauthRequest.cs" Line="1" Column="1" />
       <File FileName="PbPTweetAggregator.Test/RequestTest.cs" Line="4" Column="1" />
+      <File FileName="PbPTweetAggregator/web.config" Line="1" Column="1" />
+      <File FileName="PbPTweetAggregator/Global.asax.cs" Line="44" Column="4" />
+      <File FileName="PbPTweetAggregator/Global.asax" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -20,9 +23,8 @@
             <Node name="Communication" expanded="True" />
             <Node name="Properties" expanded="True" />
             <Node name="Twitter" expanded="True" />
-            <Node name="Global.asax" expanded="True" />
           </Node>
-          <Node name="PbPTweetAggregator.Test" expanded="True" selected="True">
+          <Node name="PbPTweetAggregator.Test" expanded="True">
             <Node name="References" expanded="True" />
           </Node>
         </State>
@@ -39,7 +41,9 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/Toben/Projects/PayByPhoneApplication/PbPTweetAggregator/Global.asax.cs" line="45" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
