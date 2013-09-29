@@ -8,7 +8,7 @@
     <ProjectGuid>{36815A8D-75D3-4597-80EA-FA1DD186DDAD}</ProjectGuid>
     <ProjectTypeGuids>{349C5851-65DF-11DA-9384-00065B846F21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>web1</RootNamespace>
+    <RootNamespace>PbPTweetAggregator</RootNamespace>
     <AssemblyName>web1</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
