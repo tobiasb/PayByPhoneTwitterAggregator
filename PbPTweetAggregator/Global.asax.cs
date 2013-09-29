@@ -6,12 +6,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
+using NLog;
 using System.Web.SessionState;
 
 namespace PbPTweetAggregator
 {
 	public class Global : System.Web.HttpApplication
 	{
+		private static Logger logger = LogManager.GetLogger("PbPTweetAggregator");
+
 		/// <summary>
 		/// Create your ServiceStack web service application with a singleton AppHost.
 		/// </summary>        
@@ -39,6 +42,7 @@ namespace PbPTweetAggregator
 
 		protected void Application_Start(object sender, EventArgs e)
 		{
+			logger.Debug ("Calling Application_Start");
 			//Initialize your application
 			(new TweetSummaryAppHost()).Init();
 		}
