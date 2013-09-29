@@ -3,7 +3,6 @@ using ServiceStack.ServiceHost;
 using ServiceStack.WebHost.Endpoints;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Security;
 using NLog;
@@ -23,7 +22,7 @@ namespace PbPTweetAggregator
 			/// <summary>
 			/// Initializes a new instance of your ServiceStack application, with the specified name and assembly containing the services.
 			/// </summary>
-			public TweetSummaryAppHost() : base("Hello Web Services", typeof(TweetSummaryService).Assembly) { }
+			public TweetSummaryAppHost() : base("TweetAggregator Service", typeof(TweetSummaryService).Assembly) { }
 
 			/// <summary>
 			/// Configure the container with the necessary routes for your ServiceStack application.
@@ -35,8 +34,7 @@ namespace PbPTweetAggregator
 				//http://localhost/ServiceStack.Hello/servicestack/hello or http://localhost/ServiceStack.Hello/servicestack/hello/John%20Doe
 				//You can change /servicestack/ to a custom path in the web.config.
 				Routes
-					.Add<TweetSummary>("/tweetSummary")
-						.Add<TweetSummary>("/tweetSummary/{Name}");
+					.Add<TweetSummary>("/tweetSummary");
 			}
 		}
 
