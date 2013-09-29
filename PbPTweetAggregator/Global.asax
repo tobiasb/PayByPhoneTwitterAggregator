@@ -1,1 +1,1 @@
-<%@ Application Inherits="PbPTweetAggregator.Global" %>
+<%@ Application Codebehind="Global.asax.cs" Inherits="PbPTweetAggregator.Global" %>
