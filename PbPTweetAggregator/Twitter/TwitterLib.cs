@@ -61,7 +61,7 @@ namespace PbPTweetAggregator.Twitter
         public static List<Tweet> GetTweets(TwitterCredentials credentials, string user, DateTime minDate)
         {
             IEnumerable<Tweet> tweets = GetTweets(credentials, user);
-            return tweets.Where(t => t.Time >= minDate).ToList();
+            return tweets.Where(t => t.Created >= minDate).ToList();
         }
 
         private static DateTime ParseTwitterDateTime(string date)
