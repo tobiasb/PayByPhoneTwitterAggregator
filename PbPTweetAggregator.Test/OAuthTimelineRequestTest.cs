@@ -21,7 +21,10 @@ namespace PbPTweetAggregator.Tests
         [Test()]
         public void TestGetTweets()
 		{
-			ITimelineRequest request = new OAuthTimelineRequest (credentials, twitterTestUser);
+			ITimelineRequest request = new OAuthTimelineRequest (credentials, twitterTestUser)
+			{
+				Max = 10
+			};
 			List<Tweet> tweets = TwitterLib.GetTimeline(request);
 
             Assert.IsNotNull(tweets);
@@ -31,7 +34,10 @@ namespace PbPTweetAggregator.Tests
         [Test()]
         public void TestGetTweetsGreaterThanDate()
 		{
-			ITimelineRequest request = new OAuthTimelineRequest (credentials, twitterTestUser);
+			ITimelineRequest request = new OAuthTimelineRequest (credentials, twitterTestUser)			
+			{
+				Max = 10
+			};
 			//Get all tweets
 			List<Tweet> tweets = TwitterLib.GetTimeline(request);
 

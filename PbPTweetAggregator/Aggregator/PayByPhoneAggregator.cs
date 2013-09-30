@@ -38,7 +38,7 @@ namespace PbPTweetAggregator.Aggregator
 			//Combine tweets for all twitter users
 			foreach (string twitterUser in twitterUsers) {
 				ITimelineRequest request = new OAuthTimelineRequest (credentials, twitterUser);
-				tweets.AddRange(TwitterLib.GetTimeline(request, DateTime.UtcNow.AddDays(-14)));
+				tweets.AddRange(TwitterLib.GetTimeline(request, DateTime.Now.AddDays(-14)));
 			}
 
 			//Sort by created-date in descending order

@@ -12,8 +12,10 @@ namespace PbPTweetAggregator
 		private TwitterCredentials credentials;
 		private string user;
 
+		public long MaxId { get; set; }
 		public string User { get { return user; } }
 		public TwitterCredentials Credentials { get { return credentials; } }
+		public int? Max { get; set; }
 
 		public OAuthTimelineRequest (TwitterCredentials credentials, string user)
 		{
@@ -32,7 +34,13 @@ namespace PbPTweetAggregator
 			request.ConsumerKeySecret = credentials.ConsumerKeySecret;
 
 			var requestParameters = new SortedDictionary<string, string>();
+			requestParameters.Add("count", "20");
 			//requestParameters.Add("include_rts", "false");
+
+			if(MaxId < long.MaxValue) {
+				requestParameters.Add("max_id", MaxId.ToString());
+			}
+
 			requestParameters.Add("screen_name", user);
 
 			request.RequestParameters = requestParameters;

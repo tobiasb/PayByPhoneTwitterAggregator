@@ -50,7 +50,7 @@ namespace PbPTweetAggregator.Tests
 			PayByPhoneAggregator aggregator = new PayByPhoneAggregator (credentials, twitterUsers);
 			Summary summary = aggregator.GetSummary ();
 
-			Assert.IsFalse(summary.Tweets.Where(t => t.Created < DateTime.UtcNow.AddDays(-14)).ToList().Count > 0);
+			Assert.IsFalse(summary.Tweets.Where(t => t.Created < DateTime.Now.AddDays(-14)).ToList().Count > 0);
 		}
 	}
 }

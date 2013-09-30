@@ -12,24 +12,39 @@ namespace PbPTweetAggregator.Twitter
     {
         public static List<Tweet> GetTimeline(ITimelineRequest request)
         {
-            JArray timeline = JArray.Parse(request.GetResponse());
-
-			//Get basic information of each tweet
-            var tweets = from JObject tweet in timeline 
-                         select new Tweet() { 
-												User = request.User, 
-												Created = ParseTwitterDateTime(tweet.GetValue("created_at").ToString()), 
-												Text = tweet.GetValue("text").ToString(),
-												Mentions = tweet["entities"]["user_mentions"].Children().Count()
-											};
-
-            return tweets.ToList();
+			return GetTimeline (request, DateTime.MinValue);
         }
 
 		public static List<Tweet> GetTimeline(ITimelineRequest request, DateTime minDate)
         {
-            IEnumerable<Tweet> tweets = GetTimeline(request);
-            return tweets.Where(t => t.Created >= minDate).ToList();
+			List<Tweet> relevantTweets = null;
+			List<Tweet> result = new List<Tweet> ();
+
+			request.MaxId = long.MaxValue;
+
+			do {
+				JArray timeline = JArray.Parse (request.GetResponse ());
+
+				//Get basic information of each tweet
+				var tweets = from JObject tweet in timeline 
+					select new Tweet () { 
+					Id = long.Parse(tweet["id_str"].ToString()),
+					User = request.User, 
+					Created = ParseTwitterDateTime(tweet["created_at"].ToString()), 
+					Text = tweet["text"].ToString(),
+					Mentions = tweet["entities"]["user_mentions"].Children().Count()
+				};
+
+				relevantTweets = 
+					tweets.Where (t => t.Created >= minDate && !result.Contains(t)).ToList ();
+
+				result.AddRange (relevantTweets);
+				request.MaxId =
+					result.Aggregate((curmin, x) => (curmin == null || x.Id < curmin.Id ? x : curmin)).Id;
+
+			} while (relevantTweets.Count > 0 && result.Count <= (request.Max ?? int.MaxValue));
+
+			return result;
         }
 
         private static DateTime ParseTwitterDateTime(string date)

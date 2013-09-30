@@ -1,4 +1,5 @@
 */bin/*
 *.mdb
 */obj/*
+*.userprefs
 */test-results/*
