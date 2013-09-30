@@ -37,12 +37,21 @@ namespace PbPTweetAggregator
 					.Add<TweetSummary>("/tweetSummary");
 			}
 		}
+
+		private static bool initDone = false;
+		protected void Application_BeginRequest() 
+		{
+			if (!initDone) {
+				logger.Debug ("Calling Application_Start");
+				//Initialize your application
+				(new TweetSummaryAppHost ()).Init ();
+			}
+
+			initDone = true;
+		}
 		
 		protected void Application_Start()
 		{
-			logger.Debug ("Calling Application_Start");
-			//Initialize your application
-			(new TweetSummaryAppHost()).Init();
 		}
 	}
 }
