@@ -8,8 +8,8 @@ using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
 using PbPTweetAggregator.Twitter;
-using PbPTweetAggregator.Properties;
 using PbPTweetAggregator.Aggregator;
+using System.Configuration;
 
 namespace PbPTweetAggregator
 {		
@@ -32,14 +32,14 @@ namespace PbPTweetAggregator
 		{
 			TwitterCredentials credentials = new TwitterCredentials()
 			{
-				AccessToken = Settings.Default.TwitterAccessToken,
-				AccessTokenSecret = Settings.Default.TwitterAccessTokenSecret,
-				ConsumerKey = Settings.Default.TwitterConsumerKey,
-				ConsumerKeySecret = Settings.Default.TwitterConsumerKeySecret
+				AccessToken = ConfigurationManager.AppSettings["TwitterAccessToken"],
+				AccessTokenSecret = ConfigurationManager.AppSettings["TwitterAccessTokenSecret"],
+				ConsumerKey = ConfigurationManager.AppSettings["TwitterConsumerKey"],
+				ConsumerKeySecret = ConfigurationManager.AppSettings["TwitterConsumerKeySecret"]
 			};
 
 			//The Twitter-Users that are included in the aggregation can be administered in the AppSettings
-			string[] twitterUsers = Settings.Default.TwitterUsers.Split (',');
+			string[] twitterUsers = ConfigurationManager.AppSettings["TwitterUsers"].Split (',');
 
 			//Trigger aggregation and return result through framework to browser
 			PayByPhoneAggregator aggregator = new PayByPhoneAggregator(credentials, twitterUsers);
