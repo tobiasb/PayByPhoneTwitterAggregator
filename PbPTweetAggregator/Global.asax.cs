@@ -41,17 +41,24 @@ namespace PbPTweetAggregator
 		private static bool initDone = false;
 		protected void Application_BeginRequest() 
 		{
-			if (!initDone) {
-				logger.Debug ("Calling Application_Start");
+			init();
+		}
+
+		protected void Application_Start()
+		{
+			init();
+		}
+
+		private void init()
+		{
+			if (!initDone)
+			{
+				logger.Debug("Calling Application_Start");
 				//Initialize your application
-				(new TweetSummaryAppHost ()).Init ();
+				(new TweetSummaryAppHost()).Init();
 			}
 
 			initDone = true;
-		}
-		
-		protected void Application_Start()
-		{
 		}
 	}
 }
