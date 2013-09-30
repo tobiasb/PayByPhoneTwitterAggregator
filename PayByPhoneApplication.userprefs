@@ -1,20 +1,26 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="PbPTweetAggregator/TweetSummary.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PbPTweetAggregator.Test/UATest.cs">
     <Files>
-      <File FileName="PbPTweetAggregator/TweetSummary.cs" Line="1" Column="1" />
+      <File FileName="PbPTweetAggregator.Test/UATest.cs" Line="12" Column="71" />
+      <File FileName="PbPTweetAggregator.Test/TwitterTestCredentials.cs" Line="17" Column="1" />
+      <File FileName="PbPTweetAggregator/Twitter/TwitterLib.cs" Line="4" Column="28" />
+      <File FileName="PbPTweetAggregator.Test/TwitterLibTest.cs" Line="18" Column="44" />
+      <File FileName="PbPTweetAggregator.Test/TwitterTestResponses.cs" Line="3" Column="35" />
+      <File FileName="PbPTweetAggregator/Aggregator/PayByPhoneAggregator.cs" Line="40" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
+          <Node name="Solution Items" expanded="True" />
           <Node name="PbPTweetAggregator" expanded="True">
-            <Node name="Communication" expanded="True" />
-            <Node name="Properties" expanded="True" />
+            <Node name="References" expanded="True" />
+            <Node name="Aggregator" expanded="True" />
             <Node name="Twitter" expanded="True" />
-            <Node name="Global.asax" expanded="True" />
-            <Node name="TweetSummary.cs" selected="True" />
           </Node>
-          <Node name="PbPTweetAggregator.Test" expanded="True" />
+          <Node name="PbPTweetAggregator.Test" expanded="True">
+            <Node name="UATest.cs" selected="True" />
+          </Node>
         </State>
       </Pad>
       <Pad Id="ClassPad">
