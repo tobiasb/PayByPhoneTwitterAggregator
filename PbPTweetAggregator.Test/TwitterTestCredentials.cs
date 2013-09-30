@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PbPTweetAggregator.Tests.Communication
+namespace PbPTweetAggregator.Tests
 {
     public static class TwitterTestCredentials
     {

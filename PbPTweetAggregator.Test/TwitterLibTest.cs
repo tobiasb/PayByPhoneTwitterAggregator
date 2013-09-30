@@ -1,45 +1,32 @@
-﻿using NUnit.Framework;
-using PbPTweetAggregator.Twitter;
-using System.Collections.Generic;
 using System;
+using NUnit.Framework;
+using PbPTweetAggregator.Twitter;
+using Moq;
+using System.Collections.Generic;
 
-namespace PbPTweetAggregator.Tests.Communication
+namespace PbPTweetAggregator.Test
 {
-    [TestFixture()]
-    public class TwitterLibTest
-    {
-        TwitterLib.TwitterCredentials credentials = new TwitterLib.TwitterCredentials()
-        {
-            AccessToken = TwitterTestCredentials.AccessToken,
-            AccessTokenSecret = TwitterTestCredentials.AccessTokenSecret,
-            ConsumerKey = TwitterTestCredentials.ConsumerKey,
-            ConsumerKeySecret = TwitterTestCredentials.ConsumerKeySecret
-        };
+	[TestFixture()]
+	public class TwitterLibTest
+	{
+		[Test()]
+		public void TestJsonDataExtraction ()
+		{
+			var requestWrapper = new Mock<ITimelineRequest>();
+			requestWrapper
+				.Setup (x => x.GetResponse ())
+				.Returns(TwitterTestResponses.Response1);
 
-        [Test()]
-        public void TestGetTweets()
-        {
-            List<TwitterLib.Tweet> tweets = TwitterLib.GetTimeline(credentials, "twitter");
+			List<Tweet> tweets = TwitterLib.GetTimeline (requestWrapper.Object);
 
-            Assert.IsNotNull(tweets);
-            Assert.IsTrue(tweets.Count > 0);
-        }
+			Assert.AreEqual (5, tweets.Count);
 
-        [Test()]
-        public void TestGetTweetsGreaterThanDate()
-        {
-            List<TwitterLib.Tweet> tweets = TwitterLib.GetTimeline(credentials, "twitter");
+			Assert.AreEqual (0, tweets [0].Mentions);
+			Assert.AreEqual ("Today, Twitter is updating embedded Tweets to enable a richer photo experience: https://t.co/XdXRudPXH5", tweets [0].Text);
+			Assert.AreEqual (new DateTime (2013, 09, 26, 19, 2, 42).ToLocalTime(), tweets [0].Created);
 
-            Assert.IsNotNull(tweets);
-            Assert.IsTrue(tweets.Count > 1);
-
-            DateTime dateLimit = tweets[tweets.Count / 2].Created;
-
-            tweets = TwitterLib.GetTimeline(credentials, "twitter", dateLimit);
-
-            Assert.IsNotNull(tweets);
-            Assert.IsTrue(tweets.Count > 0);
-            tweets.ForEach(t => Assert.IsTrue(t.Created >= dateLimit));
-        }
-    }
+			//...
+		}
+	}
 }
+

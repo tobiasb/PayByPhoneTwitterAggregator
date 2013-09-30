@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using PbPTweetAggregator.Twitter;
 
-namespace PbPTweetAggregator
+namespace PbPTweetAggregator.Aggregator
 {
 	public interface IUserBasedTweetAggregator
 	{
-		IDictionary<string, int> Aggregate(IList<TwitterLib.Tweet> tweets);
+		IDictionary<string, int> Aggregate(IList<Tweet> tweets);
 	}
 }
 

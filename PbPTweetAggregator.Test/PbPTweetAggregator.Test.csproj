@@ -37,6 +37,9 @@
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.1.1309.1617\lib\net40\Moq.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -48,8 +51,10 @@
   <ItemGroup>
     <Compile Include="OAuthTest.cs" />
     <Compile Include="RequestTest.cs" />
-    <Compile Include="TwitterLibTest.cs" />
     <Compile Include="TwitterTestCredentials.cs" />
+    <Compile Include="OAuthTimelineRequestTest.cs" />
+    <Compile Include="TwitterLibTest.cs" />
+    <Compile Include="TwitterTestResponses.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

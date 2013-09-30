@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using PbPTweetAggregator.Twitter;
 
-namespace PbPTweetAggregator.Twitter
+namespace PbPTweetAggregator.Aggregator
 {
 	/**
 	 * High level Twitter aggregator for PayByPhone that uses the TwitterLib to get tweets from 
@@ -11,17 +11,10 @@ namespace PbPTweetAggregator.Twitter
 	 **/
 	public class PayByPhoneAggregator
 	{
-		public class Summary
-		{
-			public IList<TwitterLib.Tweet> Tweets { get; set; }
-			public IDictionary<string, int> NumTweets { get; set; }
-			public IDictionary<string, int> NumMentions { get; set; }
-		}
-
-		private TwitterLib.TwitterCredentials credentials;
+		private TwitterCredentials credentials;
 		private string[] twitterUsers;
 
-		public PayByPhoneAggregator (TwitterLib.TwitterCredentials credentials, string[] twitterUsers)
+		public PayByPhoneAggregator (TwitterCredentials credentials, string[] twitterUsers)
 		{
 			this.credentials = credentials;
 			this.twitterUsers = twitterUsers;
@@ -29,7 +22,7 @@ namespace PbPTweetAggregator.Twitter
 
 		public Summary GetSummary()
 		{
-			List<TwitterLib.Tweet> tweets = GetTweets ();
+			List<Tweet> tweets = GetTweets ();
 
 			return new Summary () {
 				Tweets = tweets,
@@ -38,13 +31,14 @@ namespace PbPTweetAggregator.Twitter
 			};
 		}
 
-		private List<TwitterLib.Tweet> GetTweets()
+		private List<Tweet> GetTweets()
 		{
-			List<TwitterLib.Tweet> tweets = new List<TwitterLib.Tweet> ();
+			List<Tweet> tweets = new List<Tweet> ();
 
 			//Combine tweets for all twitter users
 			foreach (string twitterUser in twitterUsers) {
-				tweets.AddRange(TwitterLib.GetTimeline(credentials, twitterUser, DateTime.UtcNow.AddDays(-14)));
+				ITimelineRequest request = new OAuthTimelineRequest (credentials, twitterUser);
+				tweets.AddRange(TwitterLib.GetTimeline(request, DateTime.UtcNow.AddDays(-14)));
 			}
 
 			//Sort by created-date in descending order

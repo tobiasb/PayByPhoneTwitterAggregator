@@ -9,6 +9,7 @@ using System.Web.Security;
 using System.Web.SessionState;
 using PbPTweetAggregator.Twitter;
 using PbPTweetAggregator.Properties;
+using PbPTweetAggregator.Aggregator;
 
 namespace PbPTweetAggregator
 {		
@@ -19,7 +20,7 @@ namespace PbPTweetAggregator
 
 	public class TweetSummaryResponse
 	{
-		public PayByPhoneAggregator.Summary Result { get; set; }
+		public Summary Result { get; set; }
 	}
 	
 	/**
@@ -29,7 +30,7 @@ namespace PbPTweetAggregator
 	{
 		public object Any(TweetSummary request)
 		{
-			TwitterLib.TwitterCredentials credentials = new TwitterLib.TwitterCredentials()
+			TwitterCredentials credentials = new TwitterCredentials()
 			{
 				AccessToken = Settings.Default.TwitterAccessToken,
 				AccessTokenSecret = Settings.Default.TwitterAccessTokenSecret,
@@ -41,7 +42,7 @@ namespace PbPTweetAggregator
 			string[] twitterUsers = Settings.Default.TwitterUsers.Split (',');
 
 			//Trigger aggregation and return result through framework to browser
-			PayByPhoneAggregator aggregator = new PayByPhoneAggregator (credentials, twitterUsers);
+			PayByPhoneAggregator aggregator = new PayByPhoneAggregator(credentials, twitterUsers);
 			return new TweetSummaryResponse() { Result = aggregator.GetSummary() };
 		}
 	}

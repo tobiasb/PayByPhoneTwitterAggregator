@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using PbPTweetAggregator.Communication;
 
-namespace PbPTweetAggregator.Tests.Communication
+namespace PbPTweetAggregator.Tests
 {
     [TestFixture()]
     public class RequestTest
@@ -20,7 +20,7 @@ namespace PbPTweetAggregator.Tests.Communication
             }
             catch(Exception ex)
             {
-                Assert.Fail(string.Format("The request to {0} should be successful", r.ResourceUrl));
+				Assert.Fail(string.Format("The request to {0} should be successful but was not: {1}", r.ResourceUrl, ex));
             }
         }
     }

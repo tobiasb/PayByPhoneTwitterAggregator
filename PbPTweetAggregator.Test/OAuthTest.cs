@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using PbPTweetAggregator.Communication;
 
-namespace PbPTweetAggregator.Tests.Communication
+namespace PbPTweetAggregator.Tests
 {
 	[TestFixture()]
     public class OAuthTest
