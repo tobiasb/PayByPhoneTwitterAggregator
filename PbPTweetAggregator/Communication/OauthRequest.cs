@@ -9,6 +9,9 @@ using System.Web;
 
 namespace PbPTweetAggregator.Communication
 {
+	/**
+	 * Specialised Request to handle OAuth authentication
+	 **/
     public class OauthRequest : Request
     {
         public const string OauthVersion = "1.0";
@@ -30,11 +33,14 @@ namespace PbPTweetAggregator.Communication
             return Convert.ToBase64String(new ASCIIEncoding().GetBytes(DateTime.Now.Ticks.ToString()));
         }
 
+		//#############################################################################
+		//Code massivly inspired by John Newcomb (http://johnnewcombe.net/feed/post/12)
+		//#############################################################################
+
         private string CreateHeader(string resourceUrl, string method,
                                     IDictionary<string, string> requestParameters)
         {
             var oauthNonce = CreateOauthNonce();
-                // Convert.ToBase64String(new ASCIIEncoding().GetBytes(DateTime.Now.Ticks.ToString()));
             var oauthTimestamp = CreateOAuthTimestamp();
             var oauthSignature = CreateOauthSignature(resourceUrl, method, oauthNonce, oauthTimestamp, requestParameters);
 

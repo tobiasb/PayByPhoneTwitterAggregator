@@ -47,7 +47,7 @@ namespace PbPTweetAggregator.Twitter
 				tweets.AddRange(TwitterLib.GetTimeline(credentials, twitterUser, DateTime.UtcNow.AddDays(-14)));
 			}
 
-			//Sort by created-date descending
+			//Sort by created-date in descending order
 			tweets.Sort ((t1, t2) => t2.Created.CompareTo (t1.Created));
 
 			return tweets;

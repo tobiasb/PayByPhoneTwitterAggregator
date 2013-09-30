@@ -8,6 +8,9 @@ using System.Web;
 
 namespace PbPTweetAggregator.Communication
 {
+	/**
+	 * Basic Request class
+	 **/
     public class Request
     {
         public string ResourceUrl { get; set; }
