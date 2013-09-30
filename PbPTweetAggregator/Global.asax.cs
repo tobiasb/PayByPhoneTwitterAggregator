@@ -10,7 +10,7 @@ using System.Web.SessionState;
 
 namespace PbPTweetAggregator
 {
-	public class Global : System.Web.HttpApplication
+	public class PbPApplication : System.Web.HttpApplication
 	{
 		private static Logger logger = LogManager.GetLogger("PbPTweetAggregator");
 
@@ -37,8 +37,8 @@ namespace PbPTweetAggregator
 					.Add<TweetSummary>("/tweetSummary");
 			}
 		}
-
-		protected void Application_Start(object sender, EventArgs e)
+		
+		protected void Application_Start()
 		{
 			logger.Debug ("Calling Application_Start");
 			//Initialize your application
