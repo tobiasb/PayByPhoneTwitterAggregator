@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>ServiceStack</id>
@@ -15,6 +15,7 @@
       and https://github.com/ServiceStack/ServiceStack/wiki/Create-your-first-webservice
       for walk throughs and docs on creating your first web service.</description>
     <summary>Opensource .NET and Mono REST Web Services framework</summary>
+    <releaseNotes />
     <copyright>servicestack.net 2012 and contributors</copyright>
     <language>en-US</language>
     <tags>Fast JSON XML CSV HTML SOAP JSV REST Web Service Framework MONO ServiceStack</tags>
@@ -23,5 +24,9 @@
       <dependency id="ServiceStack.Redis" version="[3.0, 4.0)" />
       <dependency id="ServiceStack.OrmLite.SqlServer" version="[3.0, 4.0)" />
     </dependencies>
+    <references>
+      <reference file="ServiceStack.dll" />
+      <reference file="ServiceStack.ServiceInterface.dll" />
+    </references>
   </metadata>
 </package>

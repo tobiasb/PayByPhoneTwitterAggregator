@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>ServiceStack.Text</id>
@@ -19,5 +19,9 @@
     <copyright>ServiceStack 2013 and contributors</copyright>
     <language>en-US</language>
     <tags>JSON Text Serializer CSV JSV Dump PrettyPrint Fast</tags>
+    <references>
+      <reference file="ServiceStack.Text.dll" />
+      <reference file="ServiceStack.Text.WP.dll" />
+    </references>
   </metadata>
 </package>
