@@ -4,6 +4,9 @@ using PbPTweetAggregator.Twitter;
 
 namespace PbPTweetAggregator.Twitter
 {
+	/**
+	 * Tweet aggregator that returns number of tweets per user
+	 **/
 	public class TweetCountAggregator : IUserBasedTweetAggregator
 	{
 		public IDictionary<string, int> Aggregate(IList<TwitterLib.Tweet> tweets)

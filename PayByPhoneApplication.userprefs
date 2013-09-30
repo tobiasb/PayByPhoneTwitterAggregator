@@ -1,23 +1,18 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="PbPTweetAggregator/Global.asax.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PbPTweetAggregator/TweetSummary.cs">
     <Files>
-      <File FileName="PbPTweetAggregator/Global.asax.cs" Line="35" Column="13" />
-      <File FileName="PbPTweetAggregator/NLog.config" Line="10" Column="64" />
-      <File FileName="PbPTweetAggregator/web.config" Line="21" Column="62" />
-      <File FileName="PbPTweetAggregator/Global.asax" Line="1" Column="88" />
+      <File FileName="PbPTweetAggregator/TweetSummary.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="PbPTweetAggregator" expanded="True">
-            <Node name="References" expanded="True" />
             <Node name="Communication" expanded="True" />
             <Node name="Properties" expanded="True" />
             <Node name="Twitter" expanded="True" />
-            <Node name="Global.asax" expanded="True">
-              <Node name="Global.asax.cs" selected="True" />
-            </Node>
+            <Node name="Global.asax" expanded="True" />
+            <Node name="TweetSummary.cs" selected="True" />
           </Node>
           <Node name="PbPTweetAggregator.Test" expanded="True" />
         </State>

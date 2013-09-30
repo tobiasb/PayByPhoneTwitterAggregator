@@ -19,7 +19,7 @@ namespace PbPTweetAggregator.Tests.Communication
         [Test()]
         public void TestGetTweets()
         {
-            List<TwitterLib.Tweet> tweets = TwitterLib.GetTweets(credentials, "twitter");
+            List<TwitterLib.Tweet> tweets = TwitterLib.GetTimeline(credentials, "twitter");
 
             Assert.IsNotNull(tweets);
             Assert.IsTrue(tweets.Count > 0);
@@ -28,14 +28,14 @@ namespace PbPTweetAggregator.Tests.Communication
         [Test()]
         public void TestGetTweetsGreaterThanDate()
         {
-            List<TwitterLib.Tweet> tweets = TwitterLib.GetTweets(credentials, "twitter");
+            List<TwitterLib.Tweet> tweets = TwitterLib.GetTimeline(credentials, "twitter");
 
             Assert.IsNotNull(tweets);
             Assert.IsTrue(tweets.Count > 1);
 
             DateTime dateLimit = tweets[tweets.Count / 2].Created;
 
-            tweets = TwitterLib.GetTweets(credentials, "twitter", dateLimit);
+            tweets = TwitterLib.GetTimeline(credentials, "twitter", dateLimit);
 
             Assert.IsNotNull(tweets);
             Assert.IsTrue(tweets.Count > 0);

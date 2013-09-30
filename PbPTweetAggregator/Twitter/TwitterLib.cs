@@ -28,7 +28,7 @@ namespace PbPTweetAggregator.Twitter
 			public int Mentions { get; set; }
         }
 
-        public static List<Tweet> GetTweets(TwitterCredentials credentials, string user)
+        public static List<Tweet> GetTimeline(TwitterCredentials credentials, string user)
         {
             OauthRequest request = new OauthRequest();
             request.ResourceUrl = twitterApiBaseUrl + "/statuses/user_timeline.json";
@@ -43,10 +43,11 @@ namespace PbPTweetAggregator.Twitter
             requestParameters.Add("screen_name", user);
 
             request.RequestParameters = requestParameters;
-            var response = request.GetResponse();
+            var response = request.GetResponse(); //Response contains the result in json
 
             JArray timeline = JArray.Parse(response);
 
+			//Get basic information of each tweet
             var tweets = from JObject tweet in timeline 
                          select new Tweet() { 
 												User = user, 
@@ -58,9 +59,9 @@ namespace PbPTweetAggregator.Twitter
             return tweets.ToList();
         }
 
-        public static List<Tweet> GetTweets(TwitterCredentials credentials, string user, DateTime minDate)
+        public static List<Tweet> GetTimeline(TwitterCredentials credentials, string user, DateTime minDate)
         {
-            IEnumerable<Tweet> tweets = GetTweets(credentials, user);
+            IEnumerable<Tweet> tweets = GetTimeline(credentials, user);
             return tweets.Where(t => t.Created >= minDate).ToList();
         }
 

@@ -21,7 +21,10 @@ namespace PbPTweetAggregator
 	{
 		public PayByPhoneAggregator.Summary Result { get; set; }
 	}
-
+	
+	/**
+	 * ServiceStack class
+	 **/
 	public class TweetSummaryService : IService
 	{
 		public object Any(TweetSummary request)
@@ -34,9 +37,11 @@ namespace PbPTweetAggregator
 				ConsumerKeySecret = Settings.Default.TwitterConsumerKeySecret
 			};
 
+			//The Twitter-Users that are included in the aggregation can be administered in the AppSettings
 			string[] twitterUsers = Settings.Default.TwitterUsers.Split (',');
-			PayByPhoneAggregator aggregator = new PayByPhoneAggregator (credentials, twitterUsers);
 
+			//Trigger aggregation and return result through framework to browser
+			PayByPhoneAggregator aggregator = new PayByPhoneAggregator (credentials, twitterUsers);
 			return new TweetSummaryResponse() { Result = aggregator.GetSummary() };
 		}
 	}

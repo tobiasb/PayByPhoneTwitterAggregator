@@ -5,6 +5,9 @@ using System.Text.RegularExpressions;
 
 namespace PbPTweetAggregator.Twitter
 {
+	/**
+	 * Tweet aggregator that returns number of mentions of other twitter users per user
+	 **/
 	public class MentionsAggregator : IUserBasedTweetAggregator
 	{
 		public IDictionary<string, int> Aggregate(IList<TwitterLib.Tweet> tweets)
