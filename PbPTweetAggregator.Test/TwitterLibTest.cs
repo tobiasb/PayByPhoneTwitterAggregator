@@ -4,7 +4,7 @@ using PbPTweetAggregator.Twitter;
 using Moq;
 using System.Collections.Generic;
 
-namespace PbPTweetAggregator.Test
+namespace PbPTweetAggregator.Tests
 {
 	[TestFixture()]
 	public class TwitterLibTest

@@ -1,6 +1,6 @@
 using System;
 
-namespace PbPTweetAggregator.Test
+namespace PbPTweetAggregator.Tests
 {
 	public class TwitterTestResponses
 	{

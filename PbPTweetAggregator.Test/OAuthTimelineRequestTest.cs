@@ -1,7 +1,7 @@
-﻿using NUnit.Framework;
-using PbPTweetAggregator.Twitter;
+﻿using System;
 using System.Collections.Generic;
-using System;
+using NUnit.Framework;
+using PbPTweetAggregator.Twitter;
 
 namespace PbPTweetAggregator.Tests
 {

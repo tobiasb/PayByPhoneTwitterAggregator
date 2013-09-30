@@ -40,6 +40,7 @@
     <Reference Include="Moq">
       <HintPath>..\packages\Moq.4.1.1309.1617\lib\net40\Moq.dll</HintPath>
     </Reference>
+    <Reference Include="System.Data.Linq" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -55,6 +56,7 @@
     <Compile Include="OAuthTimelineRequestTest.cs" />
     <Compile Include="TwitterLibTest.cs" />
     <Compile Include="TwitterTestResponses.cs" />
+    <Compile Include="UATest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
